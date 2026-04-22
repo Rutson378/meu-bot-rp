@@ -37,16 +37,16 @@ def chat(message):
         print(f"Erro no chat: {e}")
 
 if __name__ == "__main__":
-    # 1. Limpa qualquer webhook antigo que possa estar travando o Token
+    # 1. Limpa qualquer zumbi que ficou pra trás
     bot.remove_webhook()
-    time.sleep(1) 
-
-    # 2. Inicia o Flask primeiro pra o Render ver que a porta abriu
+    
+    # 2. Sobe o Flask numa thread que não trava o sistema
     t = threading.Thread(target=run_flask)
-    t.daemon = True
+    t.daemon = True 
     t.start()
     
-    print("Servidor Flask ativo. Iniciando Polling...")
+    print("Max na área! Bora pro roleplay...")
     
-    # 3. Roda o bot com skip_pending pra ele não tentar responder mensagens velhas e dar erro 409
-    bot.infinity_polling(none_stop=True, skip_pending=True)
+    # 3. O segredo pro Render: polling com timeout longo
+    # skip_pending limpa as mensagens velhas que você já mandou
+    bot.infinity_polling(none_stop=True, skip_pending=True, timeout=60, long_polling_timeout=60)
