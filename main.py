@@ -6,9 +6,8 @@ import threading
 
 # Chaves
 TELEGRAM_TOKEN = '8513801343:AAHSF5s9HIFu4jAyPaty2pg9Wl9uuoPYfbY'
-GEMINI_API_KEY = 'AIzaSyC4Hsa4V5xk1WgLCBYS7jS71K5-YYBrPX8'
+GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
 
-# Gambiarra pro Render não derrubar o bot
 app = Flask(__name__)
 @app.route('/')
 def health_check():
