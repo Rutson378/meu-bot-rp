@@ -5,7 +5,7 @@ from flask import Flask
 import threading
 
 # Chaves
-TELEGRAM_TOKEN = '8513801343:AAFiPVFn50oWULkSp2388aDr_uah3Wlj6jQ'
+TELEGRAM_TOKEN = '8513801343:AAE4L2-kJC5YdMPM4pcF7VDNGwvOyf3LVuU'
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
 
 app = Flask(__name__)
